@@ -20,6 +20,8 @@
 		889CE2F526FF740E00267A82 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889CE2F426FF740E00267A82 /* Index.swift */; };
 		889CE2F926FF782E00267A82 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889CE2F826FF782E00267A82 /* Color.swift */; };
 		889CE2FD2700357400267A82 /* SignFuctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889CE2FC2700357400267A82 /* SignFuctions.swift */; };
+		889CE3022700D59500267A82 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889CE3012700D59500267A82 /* WebSocket.swift */; };
+		889CE3062700D71800267A82 /* SHA256.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889CE3052700D71800267A82 /* SHA256.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		889CE2F426FF740E00267A82 /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Index.swift; sourceTree = "<group>"; };
 		889CE2F826FF782E00267A82 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		889CE2FC2700357400267A82 /* SignFuctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignFuctions.swift; sourceTree = "<group>"; };
+		889CE3012700D59500267A82 /* WebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
+		889CE3052700D71800267A82 /* SHA256.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHA256.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,12 +110,12 @@
 		889CE2BC26FF559900267A82 /* GoChat */ = {
 			isa = PBXGroup;
 			children = (
+				889CE3002700920300267A82 /* Global */,
 				889CE2EA26FF5D2D00267A82 /* Functions */,
 				889CE2E726FF581400267A82 /* View */,
 				889CE2BD26FF559900267A82 /* GoChatApp.swift */,
 				889CE2C126FF559A00267A82 /* Assets.xcassets */,
 				889CE2C326FF559A00267A82 /* Preview Content */,
-				889CE2EC26FF5E4E00267A82 /* Global.swift */,
 			);
 			path = GoChat;
 			sourceTree = "<group>";
@@ -157,8 +161,18 @@
 			children = (
 				889CE2F826FF782E00267A82 /* Color.swift */,
 				889CE2FC2700357400267A82 /* SignFuctions.swift */,
+				889CE3012700D59500267A82 /* WebSocket.swift */,
+				889CE3052700D71800267A82 /* SHA256.swift */,
 			);
 			path = Functions;
+			sourceTree = "<group>";
+		};
+		889CE3002700920300267A82 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				889CE2EC26FF5E4E00267A82 /* Global.swift */,
+			);
+			path = Global;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,7 +311,9 @@
 				889CE2F526FF740E00267A82 /* Index.swift in Sources */,
 				889CE2F326FF6E6800267A82 /* Home.swift in Sources */,
 				889CE2EF26FF6C5700267A82 /* SignupPage.swift in Sources */,
+				889CE3062700D71800267A82 /* SHA256.swift in Sources */,
 				889CE2F926FF782E00267A82 /* Color.swift in Sources */,
+				889CE3022700D59500267A82 /* WebSocket.swift in Sources */,
 				889CE2ED26FF5E4E00267A82 /* Global.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

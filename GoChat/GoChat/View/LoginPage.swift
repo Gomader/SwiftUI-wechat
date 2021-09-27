@@ -8,7 +8,8 @@ struct LoginView: View {
     @Binding var logined:Bool;
     var body: some View {
         VStack{
-            Text("用户名或邮箱")
+            Image(uiImage: UIImage(imageLiteralResourceName: "logo"))
+            Text("邮箱")
                 .frame(maxWidth: .infinity,alignment: .leading)
                 .padding(.top,screen_height*0.08)
                 .padding(.leading,screen_width*0.2)
@@ -16,7 +17,7 @@ struct LoginView: View {
             TextField("",text: $account)
                 .frame(width: screen_width*0.6-16, height: screen_height*0.058, alignment: .leading)
                 .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
-                .background(Color(hex: 0xECECEC))
+                .background(Color(hex: 0xECECEC,alpha:0.5))
                 .cornerRadius(12)
                 .foregroundColor(Color(hex: 0xD30E0E))
             Text("密码")
@@ -27,11 +28,13 @@ struct LoginView: View {
             SecureField("",text: $password)
                 .frame(width: screen_width*0.6-16, height: screen_height*0.058, alignment: .leading)
                 .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
-                .background(Color(hex: 0xECECEC))
+                .background(Color(hex: 0xECECEC,alpha:0.5))
                 .cornerRadius(12)
                 .foregroundColor(Color(hex: 0xD30E0E))
             Button(action: {
-                
+                if(Login(Account: account, Password: password.sha256)){
+                    logined = true;
+                }
             }, label: {
                 Image(systemName: "arrowshape.turn.up.right.circle")
                     .font(.system(size: 60))

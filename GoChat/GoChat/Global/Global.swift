@@ -1,0 +1,5 @@
+let HOST:String = "http://gochat.dengmiaoiao.cn"
+let WEBSOCKET_HOST:String = "ws://gochat.dengmiaomiao.cn/chat/connect/"
+var ACCOUNT:String = ""
+var PASSWORD:String = ""
+var ACCESS_TOKEN:String = ""

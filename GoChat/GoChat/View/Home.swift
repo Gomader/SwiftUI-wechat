@@ -2,13 +2,12 @@ import SwiftUI
 
 struct HomeView: View {
     @State var signPage = false;
-    @State var logined = SESSION=="" ? false : true;
+    @State var logined = ACCESS_TOKEN=="" ? false : true;
     var body: some View {
         if(logined){
             SignupPage()
         }else{
             VStack{
-                Image(uiImage: UIImage(imageLiteralResourceName: "logo"))
                 if(signPage){
                     SignupPage()
                 }else{
