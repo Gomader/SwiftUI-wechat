@@ -5,13 +5,15 @@ struct HomeView: View {
     @State var logined = ACCESS_TOKEN=="" ? false : true;
     var body: some View {
         if(logined){
-            SignupPage()
+            Index()
         }else{
             VStack{
                 if(signPage){
-                    SignupPage()
+                    SignupPage(signPage: $signPage)
+                        .transition(.move(edge: .trailing))
                 }else{
                     LoginView(logined: $logined)
+                        .transition(.move(edge: .trailing))
                 }
             }.frame(maxHeight: .infinity)
                 .overlay(

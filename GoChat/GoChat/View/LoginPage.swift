@@ -1,11 +1,14 @@
 import SwiftUI
+import AlertToast
 
 struct LoginView: View {
-    let screen_width = UIScreen.main.bounds.size.width;
-    let screen_height = UIScreen.main.bounds.size.height;
-    @State var account = "";
-    @State var password = "";
-    @Binding var logined:Bool;
+    let screen_width = UIScreen.main.bounds.size.width
+    let screen_height = UIScreen.main.bounds.size.height
+    @State var account = ""
+    @State var password = ""
+    @Binding var logined:Bool
+    @State var showLoginResult:Bool = false
+    @State var json:NSDictionary = NSDictionary()
     var body: some View {
         VStack{
             Image(uiImage: UIImage(imageLiteralResourceName: "logo"))
@@ -32,15 +35,31 @@ struct LoginView: View {
                 .cornerRadius(12)
                 .foregroundColor(Color(hex: 0xD30E0E))
             Button(action: {
-                if(Login(Account: account, Password: password.sha256)){
-                    logined = true;
+                if(account != "" && password.lengthOfBytes(using: .utf8) >= 8){
+                    json = Login(Account: account, Password: password.sha256)
+                    showLoginResult.toggle()
                 }
             }, label: {
                 Image(systemName: "arrowshape.turn.up.right.circle")
                     .font(.system(size: 60))
                     .padding(.top,screen_height*0.07)
-                    .foregroundColor(account != "" && password != "" ? Color(hex: 0xD30E0E) : Color(hex: 0xECECEC))
+                    .foregroundColor(account != "" && password.lengthOfBytes(using: .utf8) >= 8 ? Color(hex: 0xD30E0E) : Color(hex: 0xECECEC))
             })
         }
+        .toast(isPresenting: $showLoginResult, duration: 2, tapToDismiss: false, offsetY: 0, alert: {
+            if json.count==0 {
+                return AlertToast(type: .loading,title: Optional("登录中"))
+            }else{
+                if json["code"] as! Int == 200{
+                    return AlertToast(type: .complete(Color(hex: 0x2EA043)),title: Optional(json["msg"] as! String))
+                }else{
+                    return AlertToast(type: .error(Color(hex: 0xD30E0E)),title: Optional(json["msg"] as! String))
+                }
+            }
+        }, onTap: {}, completion: {
+            if json["code"] as! Int == 200{
+                logined = true
+            }
+        })
     }
 }

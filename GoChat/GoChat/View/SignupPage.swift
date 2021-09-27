@@ -1,14 +1,18 @@
 import SwiftUI
+import AlertToast
 
 struct SignupPage: View {
-    let screen_width = UIScreen.main.bounds.size.width;
-    let screen_height = UIScreen.main.bounds.size.height;
-    @State var username = "";
-    @State var email = "";
-    @State var password = "";
-    @State var confirmPassword = "";
-    @State var usericon = Data.init(capacity: 0);
-    @State var shown = false;
+    let screen_width = UIScreen.main.bounds.size.width
+    let screen_height = UIScreen.main.bounds.size.height
+    @State var username = ""
+    @State var email = ""
+    @State var password = ""
+    @State var confirmPassword = ""
+    @State var usericon = Data.init(capacity: 0)
+    @State var shown = false
+    @State var showSignupResult:Bool = false
+    @State var json:NSDictionary = NSDictionary()
+    @Binding var signPage:Bool
     var body: some View {
         VStack{
             Button(action: {
@@ -71,20 +75,32 @@ struct SignupPage: View {
                 .cornerRadius(12)
                 .foregroundColor(Color(hex: 0xD30E0E))
             Button(action: {
-                
+                if username != "" && email != "" && password==confirmPassword && password.lengthOfBytes(using: .utf8) >= 8{
+                    json = SignUp(Username: username, Email: email, Password: password.sha256, Icon: usericon)
+                    showSignupResult.toggle()
+                }
             }, label: {
                 Image(systemName: "arrowshape.turn.up.right.circle")
                     .font(.system(size: 60))
                     .padding(.top,screen_height*0.07)
-                    .foregroundColor(username != "" && password != "" ? Color(hex: 0xD30E0E) : Color(hex: 0xECECEC))
+                    .foregroundColor(username != "" && email != "" && password==confirmPassword && password.lengthOfBytes(using: .utf8) >= 8 ? Color(hex: 0xD30E0E) : Color(hex: 0xECECEC))
             })
-        }
-    }
-}
-
-struct SignupPage_Previews: PreviewProvider {
-    static var previews: some View {
-        SignupPage()
+        }.toast(isPresenting: $showSignupResult, duration: 2, tapToDismiss: false, offsetY: 0, alert: {
+            if json.count==0 {
+                return AlertToast(type: .loading,title: Optional("注册中"))
+            }else{
+                if json["code"] as! Int == 200{
+                    return AlertToast(type: .complete(Color(hex: 0x2EA043)),title: Optional(json["msg"] as! String))
+                }else{
+                    return AlertToast(type: .error(Color(hex: 0xD30E0E)),title: Optional(json["msg"] as! String))
+                }
+            }
+        }, onTap: {}, completion: {
+            if json["code"] as! Int == 200{
+                signPage = false
+                
+            }
+        })
     }
 }
 
