@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct GoChatApp: App {
+    init(){
+        Init()
+    }
     var body: some Scene {
         WindowGroup {
             HomeView();

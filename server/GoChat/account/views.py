@@ -26,7 +26,7 @@ def signin(request):
         if len(user) == 1:
             request.session["id"] = user[0].id
             request.session.save()
-            return HttpResponse(ReturnFormat(code=200,msg="登录成功",accesstoken=request.session.session_key,data={"id":user[0].id}))
+            return HttpResponse(ReturnFormat(code=200,msg="登录成功",accesstoken=request.session.session_key))
         else:
             return HttpResponse(ReturnFormat(code=401,msg="用户名或密码错误"))
     else:
@@ -38,7 +38,6 @@ def signup(request):
         email = request.POST["email"]
         password = request.POST["password"]
         id = randomId()
-        print(request.FILES.keys())
         while True:
             user = account_models.Account.objects.filter(Q(id=id))
             if len(user) == 0 :
@@ -48,12 +47,16 @@ def signup(request):
         user = account_models.Account.objects.filter(Q(email=email))
         if len(user) != 0:
             return HttpResponse(ReturnFormat(code=403,msg="邮箱已被注册"))
-        #try:
-        icon = request.FILES["icon"]
-        account_models.Account.objects.create(id=id,username=username,email=email,password=password,icon=icon)
-        #except:
-        #    account_models.Account.objects.create(id=id,username=username,email=email,password=password)
-        return HttpResponse(ReturnFormat(code=200,msg="注册成功"))
-        
+        try:
+            icon = request.FILES["icon"]
+            account_models.Account.objects.create(id=id,username=username,email=email,password=password,icon=icon)
+        except:
+            account_models.Account.objects.create(id=id,username=username,email=email,password=password)
+        request.session["id"] = id
+        request.session.save()
+        return HttpResponse(ReturnFormat(code=200,msg="注册成功",accesstoken=request.session.session_key))        
     else:
         return HttpResponse(ReturnFormat(code=405,msg="请求方法不正确"))
+
+def getUserInfo(request):
+    pass

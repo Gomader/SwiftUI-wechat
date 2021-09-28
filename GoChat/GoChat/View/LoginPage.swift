@@ -37,6 +37,10 @@ struct LoginView: View {
             Button(action: {
                 if(account != "" && password.lengthOfBytes(using: .utf8) >= 8){
                     json = Login(Account: account, Password: password.sha256)
+                    if json["code"] as! Int == 200 {
+                        ACCESS_TOKEN = json["accesstoken"] as! String
+                        SaveAccessToken()
+                    }
                     showLoginResult.toggle()
                 }
             }, label: {

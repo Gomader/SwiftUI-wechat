@@ -10,13 +10,15 @@ struct SignupPage: View {
     @State var confirmPassword = ""
     @State var usericon = Data.init(capacity: 0)
     @State var shown = false
+    @State var menu = false
+    @State var isCamera = false
     @State var showSignupResult:Bool = false
     @State var json:NSDictionary = NSDictionary()
-    @Binding var signPage:Bool
+    @Binding var logined:Bool
     var body: some View {
         VStack{
             Button(action: {
-                self.shown.toggle();
+                self.menu.toggle();
             }){
                 if(usericon.count==0){
                     Image(systemName: "person.badge.plus")
@@ -28,7 +30,7 @@ struct SignupPage: View {
                         .frame(width:screen_width*0.2,height:screen_width*0.2)
                         .cornerRadius(20)
                 }
-            }.sheet(isPresented: $shown) {picker(shown: self.$shown, usericon: self.$usericon,isCamera: false)}
+            }.sheet(isPresented: $shown) {picker(shown: self.$shown, usericon: self.$usericon,isCamera: isCamera)}
             Text("用户名")
                 .frame(maxWidth: .infinity,alignment: .leading)
                 .padding(.top,screen_height*0.03)
@@ -77,6 +79,10 @@ struct SignupPage: View {
             Button(action: {
                 if username != "" && email != "" && password==confirmPassword && password.lengthOfBytes(using: .utf8) >= 8{
                     json = SignUp(Username: username, Email: email, Password: password.sha256, Icon: usericon)
+                    if json["code"] as! Int == 200 {
+                        ACCESS_TOKEN = json["accesstoken"] as! String
+                        SaveAccessToken()
+                    }
                     showSignupResult.toggle()
                 }
             }, label: {
@@ -97,10 +103,21 @@ struct SignupPage: View {
             }
         }, onTap: {}, completion: {
             if json["code"] as! Int == 200{
-                signPage = false
-                
+                logined = true
             }
-        })
+        }).actionSheet(isPresented: $menu){
+            ActionSheet(title: Text("选择头像"), buttons: [
+                .default(Text("相机")){
+                    isCamera = true
+                    shown.toggle()
+                },
+                .default(Text("相册")){
+                    isCamera = false
+                    shown.toggle()
+                },
+                .cancel(Text("取消"))
+            ])
+        }
     }
 }
 
@@ -149,7 +166,7 @@ struct picker : UIViewControllerRepresentable {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             
             let img = info[.originalImage] as! UIImage
-            usericon = img.jpegData(compressionQuality: 80)!
+            usericon = img.jpegData(compressionQuality: 0.5)!
             shown.toggle()
         }
     }

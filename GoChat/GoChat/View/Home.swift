@@ -9,7 +9,7 @@ struct HomeView: View {
         }else{
             VStack{
                 if(signPage){
-                    SignupPage(signPage: $signPage)
+                    SignupPage(logined: $logined)
                         .transition(.move(edge: .trailing))
                 }else{
                     LoginView(logined: $logined)
@@ -23,7 +23,7 @@ struct HomeView: View {
                         .foregroundColor(.gray)
                     Button(action: {
                         withAnimation{
-                            if(signPage){signPage=false}else{signPage=true}
+                            signPage.toggle()
                         }
                     }, label: {
                         Text(signPage ? "登录" : "注册账户")

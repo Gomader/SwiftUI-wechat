@@ -29,6 +29,8 @@
 		889CE3122701EB9700267A82 /* ChatListNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889CE3112701EB9700267A82 /* ChatListNavigationView.swift */; };
 		889CE3262702036600267A82 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 889CE3252702036600267A82 /* AlertToast */; settings = {ATTRIBUTES = (Required, ); }; };
 		889CE329270223B500267A82 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 889CE328270223B500267A82 /* Alamofire */; };
+		88F623BE2703114700335081 /* SaveLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F623BD2703114700335081 /* SaveLocation.swift */; };
+		88F623C02703164700335081 /* Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F623BF2703164700335081 /* Init.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,9 +74,8 @@
 		889CE30C2701D86600267A82 /* Find.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Find.swift; sourceTree = "<group>"; };
 		889CE30E2701D87800267A82 /* My.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My.swift; sourceTree = "<group>"; };
 		889CE3112701EB9700267A82 /* ChatListNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListNavigationView.swift; sourceTree = "<group>"; };
-		889CE3142701FA1400267A82 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
-		889CE3152701FA1400267A82 /* AlertToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertToast.swift; sourceTree = "<group>"; };
-		889CE3162701FA1400267A82 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		88F623BD2703114700335081 /* SaveLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocation.swift; sourceTree = "<group>"; };
+		88F623BF2703164700335081 /* Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Init.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,7 +183,8 @@
 				889CE2FC2700357400267A82 /* SignFuctions.swift */,
 				889CE3012700D59500267A82 /* WebSocket.swift */,
 				889CE3052700D71800267A82 /* SHA256.swift */,
-				889CE3132701FA1400267A82 /* AlertToast */,
+				88F623BD2703114700335081 /* SaveLocation.swift */,
+				88F623BF2703164700335081 /* Init.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -212,17 +214,6 @@
 				889CE3112701EB9700267A82 /* ChatListNavigationView.swift */,
 			);
 			path = NavigationViews;
-			sourceTree = "<group>";
-		};
-		889CE3132701FA1400267A82 /* AlertToast */ = {
-			isa = PBXGroup;
-			children = (
-				889CE3142701FA1400267A82 /* BlurView.swift */,
-				889CE3152701FA1400267A82 /* AlertToast.swift */,
-				889CE3162701FA1400267A82 /* ActivityIndicator.swift */,
-			);
-			name = AlertToast;
-			path = "../../../../../../Downloads/AlertToast-master/Sources/AlertToast";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +306,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 889CE2B126FF559900267A82;
 			packageReferences = (
@@ -364,10 +356,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				889CE2E926FF58F300267A82 /* LoginPage.swift in Sources */,
+				88F623C02703164700335081 /* Init.swift in Sources */,
 				889CE2FD2700357400267A82 /* SignFuctions.swift in Sources */,
 				889CE2BE26FF559900267A82 /* GoChatApp.swift in Sources */,
 				889CE30F2701D87800267A82 /* My.swift in Sources */,
 				889CE3122701EB9700267A82 /* ChatListNavigationView.swift in Sources */,
+				88F623BE2703114700335081 /* SaveLocation.swift in Sources */,
 				889CE2F526FF740E00267A82 /* Index.swift in Sources */,
 				889CE2F326FF6E6800267A82 /* Home.swift in Sources */,
 				889CE2EF26FF6C5700267A82 /* SignupPage.swift in Sources */,
@@ -541,6 +535,7 @@
 				DEVELOPMENT_TEAM = X9KBZSF3C4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = cameraDesciption;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -571,6 +566,7 @@
 				DEVELOPMENT_TEAM = X9KBZSF3C4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = cameraDesciption;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
