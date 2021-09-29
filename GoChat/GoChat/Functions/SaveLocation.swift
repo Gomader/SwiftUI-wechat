@@ -10,3 +10,7 @@ import Foundation
 func SaveAccessToken() -> Void{
     UserDefaults.standard.setValue(ACCESS_TOKEN, forKey: "ACCESS_TOKEN")
 }
+
+func SaveUserInfo() -> Void{
+    UserDefaults.standard.setValue(USER_INFO, forKey: "USER_INFO")
+}

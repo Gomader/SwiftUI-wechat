@@ -2,8 +2,6 @@ import SwiftUI
 import AlertToast
 
 struct LoginView: View {
-    let screen_width = UIScreen.main.bounds.size.width
-    let screen_height = UIScreen.main.bounds.size.height
     @State var account = ""
     @State var password = ""
     @Binding var logined:Bool

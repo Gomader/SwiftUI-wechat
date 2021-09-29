@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from account import models as account_models
+from django.core import serializers
 from django.db.models import Q
 import json
 import random
@@ -7,7 +8,11 @@ import random
 
 # Create your views here.
 
-def ReturnFormat(code,msg,accesstoken="",data=""):
+def ReturnFormat(code,msg,accesstoken="",data=[]):
+    for col in range(len(data)):
+        for cell in data[col]["fields"].keys():
+            if data[col]["fields"][cell] == None:
+                data[col]["fields"][cell] = ""
     return json.dumps({"code":code,"msg":msg,"accesstoken":accesstoken,"data":data})
 
 def randomId():
@@ -19,6 +24,7 @@ def randomId():
     return random_str
 
 def signin(request):
+    request.session.clear_expired()
     if request.method == "POST":
         email = request.POST["account"]
         password = request.POST["password"]
@@ -59,4 +65,21 @@ def signup(request):
         return HttpResponse(ReturnFormat(code=405,msg="请求方法不正确"))
 
 def getUserInfo(request):
-    pass
+    if request.method == "POST":
+        if "id" in request.session.keys():
+            user = account_models.Account.objects.filter(Q(id=request.session["id"]))
+            if len(user) == 1:
+                data = json.loads(serializers.serialize("json", user,fields=("sex","username","email","icon")))
+                return HttpResponse(ReturnFormat(code=200,msg="获取个人信息成功",accesstoken=request.session.session_key,data=data))
+            else:
+                return HttpResponse(ReturnFormat(code=400,msg="用户不存在"))
+        else:
+            return HttpResponse(ReturnFormat(code=401,msg="未登录"))
+    else:
+        return HttpResponse(ReturnFormat(code=405,msg="请求方法不正确"))
+
+def checkToken(request):
+    if "id" in request.session.keys():
+        return HttpResponse(ReturnFormat(code=200,msg="已登录"))
+    else:
+        return HttpResponse(ReturnFormat(code=401,msg="未登录"))

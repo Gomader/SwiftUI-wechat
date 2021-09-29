@@ -2,8 +2,6 @@ import SwiftUI
 import AlertToast
 
 struct SignupPage: View {
-    let screen_width = UIScreen.main.bounds.size.width
-    let screen_height = UIScreen.main.bounds.size.height
     @State var username = ""
     @State var email = ""
     @State var password = ""

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		883C0B9D2704878D00EE1CE6 /* GetUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C0B9C2704878D00EE1CE6 /* GetUserInfo.swift */; };
+		883C0BA02704D17E00EE1CE6 /* SettingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C0B9F2704D17E00EE1CE6 /* SettingMain.swift */; };
 		889CE2BE26FF559900267A82 /* GoChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889CE2BD26FF559900267A82 /* GoChatApp.swift */; };
 		889CE2C226FF559A00267A82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 889CE2C126FF559A00267A82 /* Assets.xcassets */; };
 		889CE2C526FF559A00267A82 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 889CE2C426FF559A00267A82 /* Preview Assets.xcassets */; };
@@ -26,11 +28,9 @@
 		889CE30B2701D83F00267A82 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889CE30A2701D83F00267A82 /* Book.swift */; };
 		889CE30D2701D86600267A82 /* Find.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889CE30C2701D86600267A82 /* Find.swift */; };
 		889CE30F2701D87800267A82 /* My.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889CE30E2701D87800267A82 /* My.swift */; };
-		889CE3122701EB9700267A82 /* ChatListNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889CE3112701EB9700267A82 /* ChatListNavigationView.swift */; };
 		889CE3262702036600267A82 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 889CE3252702036600267A82 /* AlertToast */; settings = {ATTRIBUTES = (Required, ); }; };
 		889CE329270223B500267A82 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 889CE328270223B500267A82 /* Alamofire */; };
 		88F623BE2703114700335081 /* SaveLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F623BD2703114700335081 /* SaveLocation.swift */; };
-		88F623C02703164700335081 /* Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F623BF2703164700335081 /* Init.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		883C0B9B2704416500EE1CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		883C0B9C2704878D00EE1CE6 /* GetUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserInfo.swift; sourceTree = "<group>"; };
+		883C0B9F2704D17E00EE1CE6 /* SettingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingMain.swift; sourceTree = "<group>"; };
 		889CE2BA26FF559900267A82 /* GoChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		889CE2BD26FF559900267A82 /* GoChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoChatApp.swift; sourceTree = "<group>"; };
 		889CE2C126FF559A00267A82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,9 +76,7 @@
 		889CE30A2701D83F00267A82 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		889CE30C2701D86600267A82 /* Find.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Find.swift; sourceTree = "<group>"; };
 		889CE30E2701D87800267A82 /* My.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My.swift; sourceTree = "<group>"; };
-		889CE3112701EB9700267A82 /* ChatListNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListNavigationView.swift; sourceTree = "<group>"; };
 		88F623BD2703114700335081 /* SaveLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocation.swift; sourceTree = "<group>"; };
-		88F623BF2703164700335081 /* Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Init.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +106,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		883C0B9E2704D15D00EE1CE6 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				883C0B9F2704D17E00EE1CE6 /* SettingMain.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		889CE2B126FF559900267A82 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +137,7 @@
 		889CE2BC26FF559900267A82 /* GoChat */ = {
 			isa = PBXGroup;
 			children = (
+				883C0B9B2704416500EE1CE6 /* Info.plist */,
 				889CE3002700920300267A82 /* Global */,
 				889CE2EA26FF5D2D00267A82 /* Functions */,
 				889CE2E726FF581400267A82 /* View */,
@@ -166,7 +176,7 @@
 		889CE2E726FF581400267A82 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				889CE3102701EB5400267A82 /* NavigationViews */,
+				883C0B9E2704D15D00EE1CE6 /* Setting */,
 				889CE3092701D81E00267A82 /* Index */,
 				889CE2E826FF58F300267A82 /* LoginPage.swift */,
 				889CE2EE26FF6C5700267A82 /* SignupPage.swift */,
@@ -184,7 +194,7 @@
 				889CE3012700D59500267A82 /* WebSocket.swift */,
 				889CE3052700D71800267A82 /* SHA256.swift */,
 				88F623BD2703114700335081 /* SaveLocation.swift */,
-				88F623BF2703164700335081 /* Init.swift */,
+				883C0B9C2704878D00EE1CE6 /* GetUserInfo.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -206,14 +216,6 @@
 				889CE30E2701D87800267A82 /* My.swift */,
 			);
 			path = Index;
-			sourceTree = "<group>";
-		};
-		889CE3102701EB5400267A82 /* NavigationViews */ = {
-			isa = PBXGroup;
-			children = (
-				889CE3112701EB9700267A82 /* ChatListNavigationView.swift */,
-			);
-			path = NavigationViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,13 +358,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				889CE2E926FF58F300267A82 /* LoginPage.swift in Sources */,
-				88F623C02703164700335081 /* Init.swift in Sources */,
 				889CE2FD2700357400267A82 /* SignFuctions.swift in Sources */,
 				889CE2BE26FF559900267A82 /* GoChatApp.swift in Sources */,
 				889CE30F2701D87800267A82 /* My.swift in Sources */,
-				889CE3122701EB9700267A82 /* ChatListNavigationView.swift in Sources */,
 				88F623BE2703114700335081 /* SaveLocation.swift in Sources */,
 				889CE2F526FF740E00267A82 /* Index.swift in Sources */,
+				883C0B9D2704878D00EE1CE6 /* GetUserInfo.swift in Sources */,
+				883C0BA02704D17E00EE1CE6 /* SettingMain.swift in Sources */,
 				889CE2F326FF6E6800267A82 /* Home.swift in Sources */,
 				889CE2EF26FF6C5700267A82 /* SignupPage.swift in Sources */,
 				889CE3062700D71800267A82 /* SHA256.swift in Sources */,
@@ -535,6 +537,7 @@
 				DEVELOPMENT_TEAM = X9KBZSF3C4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoChat/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = cameraDesciption;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -566,6 +569,7 @@
 				DEVELOPMENT_TEAM = X9KBZSF3C4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoChat/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = cameraDesciption;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
