@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "C5B5E479-829C-48BE-85CF-37C1BD2369B4"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7D65BAD7-282B-407B-BED2-B7E67DB85113"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoChat/View/Setting/SettingMain.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "7D65BAD7-282B-407B-BED2-B7E67DB85113 - 247102a441e52c7f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.toast(isPresenting: SwiftUI.Binding&lt;Swift.Bool&gt;, duration: Swift.Double, tapToDismiss: Swift.Bool, offsetY: CoreGraphics.CGFloat, alert: () -&gt; AlertToast.AlertToast, onTap: Swift.Optional&lt;() -&gt; ()&gt;, completion: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in GoChat.SettingMain.body.getter : some"
+                  moduleName = "GoChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gonghe/Desktop/workspace/SwiftUI-wechat/GoChat/GoChat/View/Setting/SettingMain.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "579">
+               </Location>
+               <Location
+                  uuid = "7D65BAD7-282B-407B-BED2-B7E67DB85113 - f320400bb5b74649"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(GoChat.SettingMainTopbar, SwiftUI.VStack&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, GoChat.General&gt;&gt;, &lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.toast(isPresenting: SwiftUI.Binding&lt;Swift.Bool&gt;, duration: Swift.Double, tapToDismiss: Swift.Bool, offsetY: CoreGraphics.CGFloat, alert: () -&gt; AlertToast.AlertToast, onTap: Swift.Optional&lt;() -&gt; ()&gt;, completion: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in GoChat.SettingMain.body.getter : some"
+                  moduleName = "GoChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gonghe/Desktop/workspace/SwiftUI-wechat/GoChat/GoChat/View/Setting/SettingMain.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "1230">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BE52DF76-7D55-420C-AD6F-4B403423D05A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoChat/View/Setting/UserInfo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "BE52DF76-7D55-420C-AD6F-4B403423D05A - 88cb3f011d4ef59"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, SwiftUI.EmptyView&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(GoChat.UserInfoTopbar, SwiftUI.VStack&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, SwiftUI.EmptyView&gt;&gt;)&gt; in GoChat.UserInfo.body.getter : some"
+                  moduleName = "GoChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gonghe/Desktop/workspace/SwiftUI-wechat/GoChat/GoChat/View/Setting/UserInfo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "127">
+               </Location>
+               <Location
+                  uuid = "BE52DF76-7D55-420C-AD6F-4B403423D05A - f4c9cf1c890f31e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.EmptyView in closure #1 () -&gt; SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, SwiftUI.EmptyView&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(GoChat.UserInfoTopbar, SwiftUI.VStack&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, SwiftUI.EmptyView&gt;&gt;)&gt; in GoChat.UserInfo.body.getter : some"
+                  moduleName = "GoChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gonghe/Desktop/workspace/SwiftUI-wechat/GoChat/GoChat/View/Setting/UserInfo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

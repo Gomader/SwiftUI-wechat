@@ -64,6 +64,11 @@ def signup(request):
     else:
         return HttpResponse(ReturnFormat(code=405,msg="请求方法不正确"))
 
+def signout(request):
+    if "id" in request.session.keys():
+        del request.session["id"]
+    return HttpResponse(ReturnFormat(code=200,msg="已注销"))
+
 def getUserInfo(request):
     if request.method == "POST":
         if "id" in request.session.keys():

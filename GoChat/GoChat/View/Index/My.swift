@@ -9,7 +9,11 @@ import SwiftUI
 
 struct My: View {
     
-    init(){
+    @Binding var logined:Bool
+    
+    init(logined: Binding<Bool>){
+        
+        self._logined = logined
         
         let json:NSDictionary = getSelfUserInfo()
         if json["code"] as! Int == 200{
@@ -30,9 +34,11 @@ struct My: View {
             
             VStack{
                 
-                MyTopbar()
+                NavigationLink(destination: UserInfo(), label: {
+                    MyTopbar()
+                }).navigationTitle("")
                 
-                NavigationLink(destination: SettingMain(), label: {
+                NavigationLink(destination: SettingMain(logined: $logined), label: {
                     
                     HStack{
                         Image(systemName: "gearshape")
@@ -49,14 +55,15 @@ struct My: View {
                             .padding()
                         
                     }.frame(width: screen_width)
-                        .background(Color.init(UIColor(normal: 0xededed, normalAlpha: 1, dark: 0x181818, darkAlpha: 1)))
+                        .background(Color.init(UIColor(normal: 0xFFFFFF, normalAlpha: 1, dark: 0x181818, darkAlpha: 1)))
                     
-                })
+                }).navigationTitle("")
                 
                 Spacer()
                 
             }.frame(maxHeight: .infinity,alignment: .top)
-                .edgesIgnoringSafeArea(.top)
+            .edgesIgnoringSafeArea(.top)
+                .background(Color.init(UIColor(normal: 0xededed, normalAlpha: 1, dark: 0x000000, darkAlpha: 1)))
 
     }
 }
@@ -68,18 +75,18 @@ struct MyTopbar: View{
             
             HStack{
                             
-                if USER_INFO["icon"] is NSNull{
+                if USER_INFO["icon"] as! String == ""{
                     Image(systemName: "person.fill")
                         .font(.system(size: 60))
                         .frame(width: 60, height: 60)
-                        .cornerRadius(20)
+                        .cornerRadius(10)
                         .padding(.leading, screen_width*0.1)
                         .foregroundColor(Color(hex: 0xECECEC))
                 }else{
                     Image(uiImage: UIImage(url: URL(string: "\(HOST)/media/\(USER_INFO["icon"] as! String)"))!)
                         .resizable()
                         .frame(width: 60, height: 60)
-                        .cornerRadius(20)
+                        .cornerRadius(10)
                         .padding(.leading, screen_width*0.1)
                 }
                 
@@ -90,11 +97,13 @@ struct MyTopbar: View{
             VStack(alignment: .leading){
                 
                 Text("\(USER_INFO["username"] as! String)")
+                    .foregroundColor(Color.init(UIColor(normal: 0x000000, normalAlpha: 1, dark: 0xFFFFFF, darkAlpha: 1)))
                     .font(.system(size: 20))
                     .bold()
                     .lineLimit(1)
                 
                 Text("uuid:\(USER_INFO["id"] as! String)")
+                    .foregroundColor(Color.init(UIColor(normal: 0x000000, normalAlpha: 1, dark: 0xFFFFFF, darkAlpha: 1)))
                     .font(.system(size: 15))
                     .lineLimit(1)
                 
@@ -114,6 +123,6 @@ struct MyTopbar: View{
             
         }.frame(width: screen_width, height: 100,alignment: .leading)
             .padding(.top, (UIApplication.shared.windows.last?.safeAreaInsets.top)!)
-            .background(Color.init(UIColor(normal: 0xededed, normalAlpha: 1, dark: 0x181818, darkAlpha: 1)))
+            .background(Color.init(UIColor(normal: 0xFFFFFF, normalAlpha: 1, dark: 0x181818, darkAlpha: 1)))
     }
 }

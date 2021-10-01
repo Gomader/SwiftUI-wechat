@@ -22,6 +22,7 @@ struct GoChatApp: App {
             if UserDefaults.standard.dictionary(forKey: "USER_INFO") != nil{
                 
                 USER_INFO = UserDefaults.standard.dictionary(forKey: "USER_INFO")!
+    
                 
             }
             

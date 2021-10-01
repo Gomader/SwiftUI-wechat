@@ -14,3 +14,12 @@ func SaveAccessToken() -> Void{
 func SaveUserInfo() -> Void{
     UserDefaults.standard.setValue(USER_INFO, forKey: "USER_INFO")
 }
+
+func DeleteLocalData() -> Void{
+    let userDefaults = UserDefaults.standard
+    let dics = userDefaults.dictionaryRepresentation()
+    for key in dics {
+        userDefaults.removeObject(forKey: key.key)
+    }
+    userDefaults.synchronize()
+}

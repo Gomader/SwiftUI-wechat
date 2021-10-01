@@ -5,7 +5,8 @@ struct HomeView: View {
     @State var logined = ACCESS_TOKEN=="" ? false : true;
     var body: some View {
         if(logined){
-            Index()
+            IndexNavigationView(view: Index(logined: $logined))
+                .edgesIgnoringSafeArea(.all)
         }else{
             VStack{
                 if(signPage){

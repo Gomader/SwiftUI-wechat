@@ -92,6 +92,34 @@ func CheckToken(token:String)->NSDictionary{
             semaphone.signal()
             
         })
+    
     _ = semaphone.wait(timeout: .distantFuture)
     return json
+}
+
+func SignOut() -> NSDictionary{
+    
+    var json:NSDictionary = ["code":400,"msg":"Local error"]
+    let semaphone = DispatchSemaphore(value: 0)
+    
+    let url = "\(HOST)/account/signout/"
+    let headers: HTTPHeaders = [
+        "Cookie": "sessionid=\(ACCESS_TOKEN)"
+    ]
+    
+    AF.request(url,method: .post, headers: headers)
+        .responseJSON(queue: DispatchQueue.global(qos: .default),completionHandler: { (response) in
+            
+            do{
+                json = try JSONSerialization.jsonObject(with: response.data!, options: []) as! NSDictionary
+            }catch{
+ 
+            }
+            semaphone.signal()
+            
+        })
+    
+    _ = semaphone.wait(timeout: .distantFuture)
+    return json
+    
 }

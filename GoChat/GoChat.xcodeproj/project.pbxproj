@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		883ACA812707585B006D4898 /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883ACA802707585B006D4898 /* General.swift */; };
+		883ACA8327075B0B006D4898 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883ACA8227075B0B006D4898 /* UserInfo.swift */; };
 		883C0B9D2704878D00EE1CE6 /* GetUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C0B9C2704878D00EE1CE6 /* GetUserInfo.swift */; };
 		883C0BA02704D17E00EE1CE6 /* SettingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C0B9F2704D17E00EE1CE6 /* SettingMain.swift */; };
 		889CE2BE26FF559900267A82 /* GoChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889CE2BD26FF559900267A82 /* GoChatApp.swift */; };
@@ -51,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		883ACA802707585B006D4898 /* General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = General.swift; sourceTree = "<group>"; };
+		883ACA8227075B0B006D4898 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		883C0B9B2704416500EE1CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		883C0B9C2704878D00EE1CE6 /* GetUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserInfo.swift; sourceTree = "<group>"; };
 		883C0B9F2704D17E00EE1CE6 /* SettingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingMain.swift; sourceTree = "<group>"; };
@@ -110,6 +114,8 @@
 			isa = PBXGroup;
 			children = (
 				883C0B9F2704D17E00EE1CE6 /* SettingMain.swift */,
+				883ACA802707585B006D4898 /* General.swift */,
+				883ACA8227075B0B006D4898 /* UserInfo.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -357,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				883ACA8327075B0B006D4898 /* UserInfo.swift in Sources */,
 				889CE2E926FF58F300267A82 /* LoginPage.swift in Sources */,
 				889CE2FD2700357400267A82 /* SignFuctions.swift in Sources */,
 				889CE2BE26FF559900267A82 /* GoChatApp.swift in Sources */,
@@ -369,6 +376,7 @@
 				889CE2EF26FF6C5700267A82 /* SignupPage.swift in Sources */,
 				889CE3062700D71800267A82 /* SHA256.swift in Sources */,
 				889CE3082701D65700267A82 /* ChatList.swift in Sources */,
+				883ACA812707585B006D4898 /* General.swift in Sources */,
 				889CE30D2701D86600267A82 /* Find.swift in Sources */,
 				889CE30B2701D83F00267A82 /* Book.swift in Sources */,
 				889CE2F926FF782E00267A82 /* Color.swift in Sources */,

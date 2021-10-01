@@ -10,3 +10,10 @@ let screen_height = UIScreen.main.bounds.size.height
 var ACCESS_TOKEN:String = ""
 
 var USER_INFO:Dictionary<String, Any> = [:]
+
+class MessageList: ObservableObject{
+    
+    static let sharedInstance = MessageList()
+    @Published var list = [1,2]
+    
+}
