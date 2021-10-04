@@ -80,8 +80,11 @@ struct SettingMain: View {
 }
 
 struct SettingMainTopbar: View{
+    
     var body: some View{
         ZStack{
+            
+            backButton()
             
             Text("设置").font(.system(size: 17)).fontWeight(.semibold)
                 .padding()

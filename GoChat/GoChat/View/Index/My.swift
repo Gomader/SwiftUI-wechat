@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct My: View {
     
@@ -83,7 +84,15 @@ struct MyTopbar: View{
                         .padding(.leading, screen_width*0.1)
                         .foregroundColor(Color(hex: 0xECECEC))
                 }else{
-                    Image(uiImage: UIImage(url: URL(string: "\(HOST)/media/\(USER_INFO["icon"] as! String)"))!)
+                    KFImage.url(URL(string: "\(HOST)/media/\(USER_INFO["icon"] as! String)")!)
+                        .placeholder({
+                            Image(systemName: "person.fill")
+                                .font(.system(size: 60))
+                                .frame(width: 60, height: 60)
+                                .cornerRadius(10)
+                                .padding(.leading, screen_width*0.1)
+                                .foregroundColor(Color(hex: 0xECECEC))
+                        })
                         .resizable()
                         .frame(width: 60, height: 60)
                         .cornerRadius(10)

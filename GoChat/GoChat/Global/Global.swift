@@ -14,6 +14,6 @@ var USER_INFO:Dictionary<String, Any> = [:]
 class MessageList: ObservableObject{
     
     static let sharedInstance = MessageList()
-    @Published var list = [1,2]
+    @Published var list = []
     
 }

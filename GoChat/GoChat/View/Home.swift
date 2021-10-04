@@ -6,6 +6,7 @@ struct HomeView: View {
     var body: some View {
         if(logined){
             IndexNavigationView(view: Index(logined: $logined))
+                .navigationBarBackButtonHidden(false)
                 .edgesIgnoringSafeArea(.all)
         }else{
             VStack{

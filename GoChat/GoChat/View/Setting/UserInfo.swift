@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct UserInfo: View {
+    
     var body: some View {
         
         VStack{
@@ -33,10 +35,18 @@ struct UserInfo: View {
                                     .font(.system(size: 60))
                                     .frame(width: 60, height: 60)
                                     .cornerRadius(10)
-                                    .foregroundColor(Color(hex: 0xECECEC))
                                     .padding()
+                                    .foregroundColor(Color(hex: 0xECECEC))
                             }else{
-                                Image(uiImage: UIImage(url: URL(string: "\(HOST)/media/\(USER_INFO["icon"] as! String)"))!)
+                                KFImage.url(URL(string: "\(HOST)/media/\(USER_INFO["icon"] as! String)")!)
+                                    .placeholder({
+                                        Image(systemName: "person.fill")
+                                            .font(.system(size: 60))
+                                            .frame(width: 60, height: 60)
+                                            .cornerRadius(10)
+                                            .padding()
+                                            .foregroundColor(Color(hex: 0xECECEC))
+                                    })
                                     .resizable()
                                     .frame(width: 60, height: 60)
                                     .cornerRadius(10)
@@ -136,8 +146,11 @@ struct UserInfo: View {
 }
 
 struct UserInfoTopbar: View{
+    
     var body: some View{
         ZStack{
+            
+            backButton()
             
             Text("个人信息").font(.system(size: 17)).fontWeight(.semibold)
                 .padding()

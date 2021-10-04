@@ -18,6 +18,24 @@
           "revision": "a05db1fed0a518465a86b69a6aed8a2618516f95",
           "version": null
         }
+      },
+      {
+        "package": "Kingfisher",
+        "repositoryURL": "https://github.com/onevcat/Kingfisher.git",
+        "state": {
+          "branch": null,
+          "revision": "8c65ddf756c633d01d9ae01092bf72f0c66dfc60",
+          "version": "7.0.0"
+        }
+      },
+      {
+        "package": "Starscream",
+        "repositoryURL": "https://github.com/daltoniam/Starscream.git",
+        "state": {
+          "branch": null,
+          "revision": "df8d82047f6654d8e4b655d1b1525c64e1059d21",
+          "version": "4.0.4"
+        }
       }
     ]
   },

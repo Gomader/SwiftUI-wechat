@@ -10,36 +10,35 @@ struct Index: View {
     }
     
     var body: some View {
-        NavigationView{
-            TabView{
-                ChatList()
-                    .tabItem({
-                        Image(systemName: "message")
-                        Text("GoChat")
-                    })
-                
-                Book()
-                    .tabItem({
-                        Image(systemName: "person.crop.circle")
-                        Text("通讯录")
-                    })
-                
-                Find()
-                    .tabItem({
-                        Image(systemName: "safari")
-                        Text("发现")
-                    })
-                My(logined:$logined)
-                    .tabItem({
-                        Image(systemName: "person")
-                        Text("我")
-                    })
-            }.accentColor(Color(hex: 0xD30E0E))
-        }.accentColor(Color(hex: 0x5f5f5f))
+        TabView{
+            ChatList()
+                .tabItem({
+                    Image(systemName: "message")
+                    Text("GoChat")
+                })
+            
+            Book()
+                .tabItem({
+                    Image(systemName: "person.crop.circle")
+                    Text("通讯录")
+                })
+            
+            Find()
+                .tabItem({
+                    Image(systemName: "safari")
+                    Text("发现")
+                })
+            My(logined:$logined)
+                .tabItem({
+                    Image(systemName: "person")
+                    Text("我")
+                })
+        }.accentColor(Color(hex: 0xD30E0E))
     }
 }
 
 struct IndexNavigationView: UIViewControllerRepresentable{
+    
     
     var view: Index
     
@@ -49,8 +48,6 @@ struct IndexNavigationView: UIViewControllerRepresentable{
         let controller = UINavigationController(rootViewController: childView)
         
         controller.navigationBar.isHidden = true
-        controller.navigationBar.isTranslucent = true
-        controller.navigationBar.prefersLargeTitles = false
         
         return controller
         
@@ -60,4 +57,30 @@ struct IndexNavigationView: UIViewControllerRepresentable{
         
     }
     
+}
+
+struct backButton: View{
+    
+    @Environment(\.presentationMode) private var presentationMode
+    
+    var body: some View{
+        
+        HStack{
+            
+            Button(action: {
+                
+                presentationMode.wrappedValue.dismiss()
+                
+            }, label: {
+                Image(systemName: "chevron.backward")
+                    .font(.system(size: 20))
+                    .foregroundColor((Color(hex: 0x5f5f5f)))
+                    .padding()
+            })
+            
+            Spacer()
+            
+        }
+        
+    }
 }

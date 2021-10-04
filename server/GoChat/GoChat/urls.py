@@ -21,6 +21,7 @@ from GoChat.settings import STATIC_ROOT
 
 urlpatterns = [
     path('account/', include('account.urls')),
+    path('chat/',include('chat.urls')),
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
     re_path(r'^static/(?P<path>.*)$', serve, {'document_root': STATIC_ROOT}),
 ]

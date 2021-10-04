@@ -11,14 +11,16 @@ struct ChatList: View {
     
     @ObservedObject var list:MessageList = MessageList.sharedInstance
     
+    @State var a = 0
+    
     var body: some View {
         VStack{
             
             ChatListTopbar()
             
             Button(action: {
-                print(1)
-                list.list.append(1)
+                list.list.append(a)
+                a += 1
             }, label: {
                 Text("add")
             })
@@ -58,19 +60,13 @@ struct ChatListScrollList: View{
     
     var body: some View{
         ScrollView(.vertical,showsIndicators: false){
-            
+                
             ForEach(list.list.indices,id: \.self){item in
 
-                Text("\(list.list[list.list.count-item-1])")
+                Text("\(list.list[list.list.count-item-1] as! Int)")
 
             }
             
         }.background(Color.init(UIColor(normal: 0xFFFFFF, normalAlpha: 1, dark: 0x000000, darkAlpha: 1)))
-    }
-}
-
-struct pr:PreviewProvider{
-    static var previews: some View{
-        ChatList()
     }
 }

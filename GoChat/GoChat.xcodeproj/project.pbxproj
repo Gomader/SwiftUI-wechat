@@ -11,6 +11,8 @@
 		883ACA8327075B0B006D4898 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883ACA8227075B0B006D4898 /* UserInfo.swift */; };
 		883C0B9D2704878D00EE1CE6 /* GetUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C0B9C2704878D00EE1CE6 /* GetUserInfo.swift */; };
 		883C0BA02704D17E00EE1CE6 /* SettingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C0B9F2704D17E00EE1CE6 /* SettingMain.swift */; };
+		887B488B2708B198006E9EB5 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 887B488A2708B198006E9EB5 /* Starscream */; };
+		887B488E2709880F006E9EB5 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 887B488D2709880F006E9EB5 /* Kingfisher */; };
 		889CE2BE26FF559900267A82 /* GoChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889CE2BD26FF559900267A82 /* GoChatApp.swift */; };
 		889CE2C226FF559A00267A82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 889CE2C126FF559A00267A82 /* Assets.xcassets */; };
 		889CE2C526FF559A00267A82 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 889CE2C426FF559A00267A82 /* Preview Assets.xcassets */; };
@@ -88,8 +90,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				887B488E2709880F006E9EB5 /* Kingfisher in Frameworks */,
 				889CE3262702036600267A82 /* AlertToast in Frameworks */,
 				889CE329270223B500267A82 /* Alamofire in Frameworks */,
+				887B488B2708B198006E9EB5 /* Starscream in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +247,8 @@
 			packageProductDependencies = (
 				889CE3252702036600267A82 /* AlertToast */,
 				889CE328270223B500267A82 /* Alamofire */,
+				887B488A2708B198006E9EB5 /* Starscream */,
+				887B488D2709880F006E9EB5 /* Kingfisher */,
 			);
 			productName = GoChat;
 			productReference = 889CE2BA26FF559900267A82 /* GoChat.app */;
@@ -320,6 +326,8 @@
 			packageReferences = (
 				889CE3242702036600267A82 /* XCRemoteSwiftPackageReference "AlertToast" */,
 				889CE327270223B500267A82 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				887B48892708B198006E9EB5 /* XCRemoteSwiftPackageReference "Starscream" */,
+				887B488C2709880F006E9EB5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 889CE2BB26FF559900267A82 /* Products */;
 			projectDirPath = "";
@@ -736,6 +744,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		887B48892708B198006E9EB5 /* XCRemoteSwiftPackageReference "Starscream" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daltoniam/Starscream.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		887B488C2709880F006E9EB5 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		889CE3242702036600267A82 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/elai950/AlertToast.git";
@@ -755,6 +779,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		887B488A2708B198006E9EB5 /* Starscream */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 887B48892708B198006E9EB5 /* XCRemoteSwiftPackageReference "Starscream" */;
+			productName = Starscream;
+		};
+		887B488D2709880F006E9EB5 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 887B488C2709880F006E9EB5 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		889CE3252702036600267A82 /* AlertToast */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 889CE3242702036600267A82 /* XCRemoteSwiftPackageReference "AlertToast" */;

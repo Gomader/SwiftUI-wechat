@@ -19,15 +19,12 @@ struct General: View {
     }
 }
 
-struct General_Previews: PreviewProvider {
-    static var previews: some View {
-        General()
-    }
-}
-
 struct GeneralTopbar: View{
+    
     var body: some View{
         ZStack{
+            
+            backButton()
             
             Text("通用").font(.system(size: 17)).fontWeight(.semibold)
                 .padding()
