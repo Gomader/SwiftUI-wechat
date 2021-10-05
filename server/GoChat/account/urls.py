@@ -6,5 +6,8 @@ urlpatterns = [
     path('signup/',views.signup,name="signup"),
     path('signout/',views.signout,name="signout"),
     path('getUserInfo/',views.getUserInfo,name="getUserInfo"),
-    path('checkToken/',views.checkToken,name="checkToken")
+    path('checkToken/',views.checkToken,name="checkToken"),
+    path('searchUser/',views.searchUser,name="searchUser"),
+    path('getFriendInfo/',views.getFriendInfo,name="getFriendInfo"),
+    path('getFriendList/',views.getFriendList,name="getFriendList"),
 ]
