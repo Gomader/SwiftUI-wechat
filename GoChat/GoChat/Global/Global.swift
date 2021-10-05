@@ -11,6 +11,8 @@ var ACCESS_TOKEN:String = ""
 
 var USER_INFO:Dictionary<String, Any> = [:]
 
+var FRIENDLIST:Dictionary<String, Any> = [:]
+
 class MessageList: ObservableObject{
     
     static let sharedInstance = MessageList()

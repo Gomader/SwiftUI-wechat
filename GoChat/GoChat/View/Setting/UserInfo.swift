@@ -32,7 +32,7 @@ struct UserInfo: View {
                             
                             if USER_INFO["icon"] as! String == ""{
                                 Image(systemName: "person.fill")
-                                    .font(.system(size: 60))
+                                    .font(.system(size: 50))
                                     .frame(width: 60, height: 60)
                                     .cornerRadius(10)
                                     .padding()

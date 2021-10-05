@@ -13,6 +13,9 @@
 		883C0BA02704D17E00EE1CE6 /* SettingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C0B9F2704D17E00EE1CE6 /* SettingMain.swift */; };
 		887B488B2708B198006E9EB5 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 887B488A2708B198006E9EB5 /* Starscream */; };
 		887B488E2709880F006E9EB5 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 887B488D2709880F006E9EB5 /* Kingfisher */; };
+		887B4891270B6A81006E9EB5 /* SearchFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887B4890270B6A81006E9EB5 /* SearchFriend.swift */; };
+		887B4893270B9040006E9EB5 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887B4892270B9040006E9EB5 /* Search.swift */; };
+		887B4895270C3B74006E9EB5 /* VIsitingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887B4894270C3B74006E9EB5 /* VIsitingCard.swift */; };
 		889CE2BE26FF559900267A82 /* GoChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889CE2BD26FF559900267A82 /* GoChatApp.swift */; };
 		889CE2C226FF559A00267A82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 889CE2C126FF559A00267A82 /* Assets.xcassets */; };
 		889CE2C526FF559A00267A82 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 889CE2C426FF559A00267A82 /* Preview Assets.xcassets */; };
@@ -60,6 +63,9 @@
 		883C0B9B2704416500EE1CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		883C0B9C2704878D00EE1CE6 /* GetUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserInfo.swift; sourceTree = "<group>"; };
 		883C0B9F2704D17E00EE1CE6 /* SettingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingMain.swift; sourceTree = "<group>"; };
+		887B4890270B6A81006E9EB5 /* SearchFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriend.swift; sourceTree = "<group>"; };
+		887B4892270B9040006E9EB5 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		887B4894270C3B74006E9EB5 /* VIsitingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIsitingCard.swift; sourceTree = "<group>"; };
 		889CE2BA26FF559900267A82 /* GoChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		889CE2BD26FF559900267A82 /* GoChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoChatApp.swift; sourceTree = "<group>"; };
 		889CE2C126FF559A00267A82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,6 +130,15 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
+		887B488F270B6A55006E9EB5 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				887B4890270B6A81006E9EB5 /* SearchFriend.swift */,
+				887B4894270C3B74006E9EB5 /* VIsitingCard.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		889CE2B126FF559900267A82 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +201,7 @@
 		889CE2E726FF581400267A82 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				887B488F270B6A55006E9EB5 /* User */,
 				883C0B9E2704D15D00EE1CE6 /* Setting */,
 				889CE3092701D81E00267A82 /* Index */,
 				889CE2E826FF58F300267A82 /* LoginPage.swift */,
@@ -205,6 +221,7 @@
 				889CE3052700D71800267A82 /* SHA256.swift */,
 				88F623BD2703114700335081 /* SaveLocation.swift */,
 				883C0B9C2704878D00EE1CE6 /* GetUserInfo.swift */,
+				887B4892270B9040006E9EB5 /* Search.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -377,7 +394,9 @@
 				889CE2BE26FF559900267A82 /* GoChatApp.swift in Sources */,
 				889CE30F2701D87800267A82 /* My.swift in Sources */,
 				88F623BE2703114700335081 /* SaveLocation.swift in Sources */,
+				887B4893270B9040006E9EB5 /* Search.swift in Sources */,
 				889CE2F526FF740E00267A82 /* Index.swift in Sources */,
+				887B4891270B6A81006E9EB5 /* SearchFriend.swift in Sources */,
 				883C0B9D2704878D00EE1CE6 /* GetUserInfo.swift in Sources */,
 				883C0BA02704D17E00EE1CE6 /* SettingMain.swift in Sources */,
 				889CE2F326FF6E6800267A82 /* Home.swift in Sources */,
@@ -385,6 +404,7 @@
 				889CE3062700D71800267A82 /* SHA256.swift in Sources */,
 				889CE3082701D65700267A82 /* ChatList.swift in Sources */,
 				883ACA812707585B006D4898 /* General.swift in Sources */,
+				887B4895270C3B74006E9EB5 /* VIsitingCard.swift in Sources */,
 				889CE30D2701D86600267A82 /* Find.swift in Sources */,
 				889CE30B2701D83F00267A82 /* Book.swift in Sources */,
 				889CE2F926FF782E00267A82 /* Color.swift in Sources */,

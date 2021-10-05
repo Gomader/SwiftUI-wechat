@@ -11,10 +11,12 @@ import Kingfisher
 struct My: View {
     
     @Binding var logined:Bool
+    @Binding var newMessage:Int
     
-    init(logined: Binding<Bool>){
+    init(logined: Binding<Bool>, newMessage: Binding<Int>){
         
         self._logined = logined
+        self._newMessage = newMessage
         
         let json:NSDictionary = getSelfUserInfo()
         if json["code"] as! Int == 200{
@@ -78,7 +80,7 @@ struct MyTopbar: View{
                             
                 if USER_INFO["icon"] as! String == ""{
                     Image(systemName: "person.fill")
-                        .font(.system(size: 60))
+                        .font(.system(size: 50))
                         .frame(width: 60, height: 60)
                         .cornerRadius(10)
                         .padding(.leading, screen_width*0.1)
@@ -87,7 +89,7 @@ struct MyTopbar: View{
                     KFImage.url(URL(string: "\(HOST)/media/\(USER_INFO["icon"] as! String)")!)
                         .placeholder({
                             Image(systemName: "person.fill")
-                                .font(.system(size: 60))
+                                .font(.system(size: 50))
                                 .frame(width: 60, height: 60)
                                 .cornerRadius(10)
                                 .padding(.leading, screen_width*0.1)

@@ -15,6 +15,15 @@ func SaveUserInfo() -> Void{
     UserDefaults.standard.setValue(USER_INFO, forKey: "USER_INFO")
 }
 
+func SaveMessageBoxList() -> Void{
+    let list:MessageList = MessageList.sharedInstance
+    UserDefaults.standard.setValue(list, forKey: "MessageBoxList")
+}
+
+func SaveFriendList() -> Void{
+    UserDefaults.standard.setValue(FRIENDLIST, forKey: "FRIENDLIST")
+}
+
 func DeleteLocalData() -> Void{
     let userDefaults = UserDefaults.standard
     let dics = userDefaults.dictionaryRepresentation()

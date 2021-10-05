@@ -10,20 +10,12 @@ import SwiftUI
 struct ChatList: View {
     
     @ObservedObject var list:MessageList = MessageList.sharedInstance
-    
-    @State var a = 0
+    @Binding var newMessage:Int
     
     var body: some View {
         VStack{
             
             ChatListTopbar()
-            
-            Button(action: {
-                list.list.append(a)
-                a += 1
-            }, label: {
-                Text("add")
-            })
             
             ChatListScrollList()
             
@@ -34,6 +26,8 @@ struct ChatList: View {
 
 struct ChatListTopbar: View{
     
+    @State private var toSearchFriendPage = false
+    
     var body: some View{
         ZStack{
             
@@ -42,11 +36,36 @@ struct ChatListTopbar: View{
             HStack{
                 Spacer()
                 
-                Button(action: {
+                Menu{
                     
-                }){
-                    Image(systemName: "plus.circle").font(.system(size: 20)).foregroundColor(Color.init(UIColor(normal: 0x000000, normalAlpha: 1, dark: 0xFFFFFF, darkAlpha: 1)))
-                }.padding()
+                    Button(action: {
+                        toSearchFriendPage.toggle()
+                    }, label: {
+                        Image(systemName: "person.fill.badge.plus")
+                            .padding()
+                        Text("添加朋友")
+                    })
+                    
+                    Button(action: {
+                        
+                    }, label: {
+                        Image(systemName: "qrcode.viewfinder")
+                            .padding()
+                        Text("扫一扫")
+                    })
+                    
+                }label:{
+                    
+                    Image(systemName: "plus.circle")
+                        .font(.system(size: 20))
+                        .foregroundColor(Color.init(UIColor(normal: 0x000000, normalAlpha: 1, dark: 0xFFFFFF, darkAlpha: 1)))
+                        .padding()
+                    
+                }.background(
+                    ZStack{
+                        NavigationLink(destination: SearchFriend(), isActive: $toSearchFriendPage, label: {})
+                    }
+                )
             }
             
         }.padding(.top, (UIApplication.shared.windows.last?.safeAreaInsets.top)!)
@@ -61,7 +80,7 @@ struct ChatListScrollList: View{
     var body: some View{
         ScrollView(.vertical,showsIndicators: false){
                 
-            ForEach(list.list.indices,id: \.self){item in
+            ForEach(list.list.indices, id:\.self){item in
 
                 Text("\(list.list[list.list.count-item-1] as! Int)")
 

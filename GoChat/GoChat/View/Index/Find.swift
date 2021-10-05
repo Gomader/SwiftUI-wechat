@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct Find: View {
+    
+    @Binding var newMessage:Int
+    
     var body: some View {
         VStack{
+            
+            
             
         }
     }
 }
+
+

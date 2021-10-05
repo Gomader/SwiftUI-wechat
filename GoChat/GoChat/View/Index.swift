@@ -3,6 +3,12 @@ import SwiftUI
 struct Index: View {
     
     @Binding var logined:Bool
+    @State var ChatListNewMessage:Int = 0
+    @State var BookNewMessage:Int = 0
+    @State var FindNewMessage:Int = 0
+    @State var MyNewMessage:Int = 0
+    
+    private var tabsCount: CGFloat = 4
     
     init(logined: Binding<Bool>){
         self._logined = logined
@@ -10,30 +16,90 @@ struct Index: View {
     }
     
     var body: some View {
-        TabView{
-            ChatList()
-                .tabItem({
-                    Image(systemName: "message")
-                    Text("GoChat")
-                })
+        
+        GeometryReader{ geometry in
             
-            Book()
-                .tabItem({
-                    Image(systemName: "person.crop.circle")
-                    Text("通讯录")
-                })
+            ZStack(alignment: .bottomLeading){
+                TabView{
+                    ChatList(newMessage: $ChatListNewMessage)
+                        .tabItem({
+                            Image(systemName: "message")
+                            Text("GoChat")
+                        })
+                    
+                    Book(newMessage: $BookNewMessage)
+                        .tabItem({
+
+                            Image(systemName: "person.crop.circle")
+                                
+                            Text("通讯录")
+                        })
+                    
+                    Find(newMessage: $FindNewMessage)
+                        .tabItem({
+                            Image(systemName: "safari")
+                            Text("发现")
+                        })
+                    My(logined:$logined,newMessage: $MyNewMessage)
+                        .tabItem({
+                            Image(systemName: "person")
+                            Text("我")
+                        })
+                }.accentColor(Color(hex: 0xD30E0E))
             
-            Find()
-                .tabItem({
-                    Image(systemName: "safari")
-                    Text("发现")
-                })
-            My(logined:$logined)
-                .tabItem({
-                    Image(systemName: "person")
-                    Text("我")
-                })
-        }.accentColor(Color(hex: 0xD30E0E))
+                ZStack {
+                    Circle()
+                        .foregroundColor(.red)
+
+                    Text(self.ChatListNewMessage == -1 ? "" : self.ChatListNewMessage > 99 ? "99+" : "\(self.ChatListNewMessage)")
+                        .foregroundColor(.white)
+                        .font(Font.system(size: 12))
+                    }
+                    .frame(width: 20, height: 20)
+                    .offset(x: ( ( 2 * 1) - 1 ) * ( geometry.size.width / ( 2 * self.tabsCount ) ), y: -30)
+                    .opacity(self.ChatListNewMessage == 0 ? 0 : 1)
+                
+                ZStack {
+                    Circle()
+                        .foregroundColor(.red)
+
+                    Text(self.BookNewMessage == -1 ? "" : self.BookNewMessage > 99 ? "99+" : "\(self.BookNewMessage)")
+                        .foregroundColor(.white)
+                        .font(Font.system(size: 12))
+                    }
+                    .frame(width: 20, height: 20)
+                    .offset(x: ( ( 2 * 2) - 1 ) * ( geometry.size.width / ( 2 * self.tabsCount ) ), y: -30)
+                    .opacity(self.BookNewMessage == 0 ? 0 : 1)
+                
+                ZStack {
+                    Circle()
+                        .foregroundColor(.red)
+
+                    Text(self.FindNewMessage == -1 ? "" : self.FindNewMessage > 99 ? "99+" : "\(self.FindNewMessage)")
+                        .foregroundColor(.white)
+                        .font(Font.system(size: 12))
+                    }
+                    .frame(width: 20, height: 20)
+                    .offset(x: ( ( 2 * 3) - 1 ) * ( geometry.size.width / ( 2 * self.tabsCount ) ), y: -30)
+                    .opacity(self.FindNewMessage == 0 ? 0 : 1)
+                
+                ZStack {
+                    Circle()
+                        .foregroundColor(.red)
+
+                    Text(self.MyNewMessage == -1 ? "" : self.MyNewMessage > 99 ? "99+" : "\(self.MyNewMessage)")
+                        .foregroundColor(.white)
+                        .font(Font.system(size: 12))
+                    }
+                    .frame(width: 20, height: 20)
+                    .offset(x: ( ( 2 * 4) - 1 ) * ( geometry.size.width / ( 2 * self.tabsCount ) ), y: -30)
+                    .opacity(self.MyNewMessage == 0 ? 0 : 1)
+                
+            }
+            
+        }
+        
+        
     }
 }
 

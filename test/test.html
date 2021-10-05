@@ -4,7 +4,7 @@
             function websocket(){
                 ws = new WebSocket("ws://127.0.0.1:8090/chat/link/");
                 ws.onopen = function () {
-                    ws.send("{\"message\":\"hei\"}");
+                    ws.send("{\"accessToken\":\"mvlfot06w9qt7dd3ondyapcvr4xuj92p\"}");
                 };
                 ws.onmessage = function (evt){
                     
