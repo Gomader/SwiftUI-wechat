@@ -3,7 +3,7 @@ from account import models as account_models
 from django.core import serializers
 from django.db.models import Q
 from GoChat.settings import MEDIA_ROOT
-import json,random,os
+import json,random,os,datetime
 
 
 # Create your views here.
@@ -25,9 +25,11 @@ def randomId():
 
 def initUserFiles(id):
     # 新建聊天记录文件夹，以及temporary文件夹，储存文件
-    os.makedirs(MEDIA_ROOT+"/ChatHistory/{}".format(id)+"/temporary")
+    if os.path.exists(MEDIA_ROOT+"/ChatHistory/{}".format(id)) == False:
+        os.makedirs(MEDIA_ROOT+"/ChatHistory/{}".format(id)+"/temporary")
     # 新建信息文件夹
-    os.makedirs(MEDIA_ROOT+"/UserInfo/{}".format(id))
+    if os.path.exists(MEDIA_ROOT+"/UserInfo/{}".format(id)) == False:
+        os.makedirs(MEDIA_ROOT+"/UserInfo/{}".format(id))
     # 新建friends.json储存通讯录字符串
     with open(MEDIA_ROOT+"/UserInfo/{}".format(id)+"/friends.json","w") as f:
         json.dump({},f)
@@ -129,6 +131,44 @@ def getFriendList(request):
             with open(MEDIA_ROOT+"/UserInfo/{}".format(request.session["id"])+"/friends.json","r", encoding="utf-8") as f:
                 data = json.load(f)
             return HttpResponse(ReturnFormat(code=200,msg="获取好友列表成功",accesstoken=request.session.session_key,data=data))
+        else:
+            return HttpResponse(ReturnFormat(code=401,msg="未登录"))
+    else:
+        return HttpResponse(ReturnFormat(code=405,msg="请求方法不正确"))
+
+def sendFriendRequest(request):
+    if request.method == "POST":
+        if "id" in request.session.keys():
+            user = account_models.Account.objects.filter(id=request.session["id"])[0]
+            friendId = account_models.Account.objects.filter(id=request.POST["id"])[0]
+            application = account_models.FriendApplication.objects.filter(Q(applicant=request.session["id"])&Q(receiver=request.POST["id"]))
+            if len(application) == 0:
+                account_models.FriendApplication.objects.create(applicant=user,receiver=friendId,expire_date=(datetime.datetime.now()+datetime.timedelta(days=3)))
+            return HttpResponse(ReturnFormat(code=200,msg="发送好友请求成功",accesstoken=request.session.session_key))
+        else:
+            return HttpResponse(ReturnFormat(code=401,msg="未登录"))
+    else:
+        return HttpResponse(ReturnFormat(code=405,msg="请求方法不正确"))
+
+def acceptFriendRequest(request):
+    if request.method == "POST":
+        if "id" in request.session.keys():
+            id=request.session["id"]
+            result = account_models.FriendApplication.objects.filter(receiver=id)
+            data = json.loads(serializers.serialize("json", result, fields=("applicant","create_time","expire_date")))
+            return HttpResponse(ReturnFormat(code=200,msg="获取好友申请列表成功",accesstoken=request.session.session_key,data=data))
+        else:
+            return HttpResponse(ReturnFormat(code=401,msg="未登录"))
+    else:
+        return HttpResponse(ReturnFormat(code=405,msg="请求方法不正确"))
+
+def getFriendRequestList(request):
+    if request.method == "POST":
+        if "id" in request.session.keys():
+            id=request.session["id"]
+            result = account_models.FriendApplication.objects.filter(receiver=id)
+            data = json.loads(serializers.serialize("json", result, fields=("applicant","create_time","expire_date")))
+            return HttpResponse(ReturnFormat(code=200,msg="获取好友申请列表成功",accesstoken=request.session.session_key,data=data))
         else:
             return HttpResponse(ReturnFormat(code=401,msg="未登录"))
     else:

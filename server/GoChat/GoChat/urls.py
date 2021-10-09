@@ -16,6 +16,7 @@ Including another URLconf
 from django.urls import path,re_path
 from django.urls import include
 from django.views.static import serve
+from GoChat import views
 from GoChat.settings import MEDIA_ROOT
 from GoChat.settings import STATIC_ROOT
 

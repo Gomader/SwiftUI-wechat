@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		883A48E82711E98000AB7003 /* FriendFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A48E72711E98000AB7003 /* FriendFunctions.swift */; };
 		883ACA812707585B006D4898 /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883ACA802707585B006D4898 /* General.swift */; };
 		883ACA8327075B0B006D4898 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883ACA8227075B0B006D4898 /* UserInfo.swift */; };
 		883C0B9D2704878D00EE1CE6 /* GetUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C0B9C2704878D00EE1CE6 /* GetUserInfo.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		883A48E72711E98000AB7003 /* FriendFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendFunctions.swift; sourceTree = "<group>"; };
 		883ACA802707585B006D4898 /* General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = General.swift; sourceTree = "<group>"; };
 		883ACA8227075B0B006D4898 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		883C0B9B2704416500EE1CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				88F623BD2703114700335081 /* SaveLocation.swift */,
 				883C0B9C2704878D00EE1CE6 /* GetUserInfo.swift */,
 				887B4892270B9040006E9EB5 /* Search.swift */,
+				883A48E72711E98000AB7003 /* FriendFunctions.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				88F623BE2703114700335081 /* SaveLocation.swift in Sources */,
 				887B4893270B9040006E9EB5 /* Search.swift in Sources */,
 				889CE2F526FF740E00267A82 /* Index.swift in Sources */,
+				883A48E82711E98000AB7003 /* FriendFunctions.swift in Sources */,
 				887B4891270B6A81006E9EB5 /* SearchFriend.swift in Sources */,
 				883C0B9D2704878D00EE1CE6 /* GetUserInfo.swift in Sources */,
 				883C0BA02704D17E00EE1CE6 /* SettingMain.swift in Sources */,
@@ -450,6 +454,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -511,6 +516,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

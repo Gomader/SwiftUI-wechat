@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_apscheduler',
     'account',
+    'chat',
 ]
 
 MIDDLEWARE = [
@@ -83,7 +85,6 @@ SESSION_COOKIE_HTTPONLY = False
 SESSION_COOKIE_AGE = 1209600
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_SAVE_EVERY_REQUEST = True
-
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases

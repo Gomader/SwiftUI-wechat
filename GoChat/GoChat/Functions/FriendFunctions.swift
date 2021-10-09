@@ -1,20 +1,20 @@
 //
-//  GetUserInfo.swift
+//  FriendFunctions.swift
 //  GoChat
 //
-//  Created by 宫赫 on 2021/9/29.
+//  Created by 宫赫 on 2021/10/10.
 //
 
 import Foundation
 import UIKit
 import Alamofire
 
-func getSelfUserInfo() -> NSDictionary{
+func getFriendList() -> NSDictionary{
     
     var json:NSDictionary = ["code":400,"msg":"Local error"]
     let semaphone = DispatchSemaphore(value: 0)
     
-    let url = "\(HOST)/account/getUserInfo/"
+    let url = "\(HOST)/account/getFriendList/"
     let headers: HTTPHeaders = [
         "Cookie": "sessionid=\(ACCESS_TOKEN)"
     ]
@@ -35,12 +35,12 @@ func getSelfUserInfo() -> NSDictionary{
     
 }
 
-func getFriendUserInfo(id: String) -> NSDictionary{
+func sendFriendRequest(id:String) -> NSDictionary{
     
     var json:NSDictionary = ["code":400,"msg":"Local error"]
     let semaphone = DispatchSemaphore(value: 0)
     
-    let url = "\(HOST)/account/getFriendInfo/"
+    let url = "\(HOST)/account/sendFriendRequest/"
     let headers: HTTPHeaders = [
         "Cookie": "sessionid=\(ACCESS_TOKEN)"
     ]

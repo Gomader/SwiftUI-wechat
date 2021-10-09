@@ -10,4 +10,7 @@ urlpatterns = [
     path('searchUser/',views.searchUser,name="searchUser"),
     path('getFriendInfo/',views.getFriendInfo,name="getFriendInfo"),
     path('getFriendList/',views.getFriendList,name="getFriendList"),
+    path('sendFriendRequest/',views.sendFriendRequest,name="sendFriendRequest"),
+    path('acceptFriendRequest/',views.acceptFriendRequest,name="acceptFriendRequest"),
+    path('getFriendRequestList/',views.getFriendRequestList,name="getFriendRequestList"),
 ]
