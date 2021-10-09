@@ -47,7 +47,7 @@ struct ChatListTopbar: View{
                     })
                     
                     Button(action: {
-                        
+                        SOCKET?.write(string: "{\"message\":\"hi\"}")
                     }, label: {
                         Image(systemName: "qrcode.viewfinder")
                             .padding()

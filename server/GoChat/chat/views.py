@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from dwebsocket.decorators import accept_websocket
-from django.contrib.sessions.backends.db import SessionStore
 from GoChat.settings import MEDIA_ROOT
 import json
 
@@ -16,20 +15,21 @@ def link(request):
 
     if request.is_websocket:
 
+        if "id" not in request.session.keys():
+            return
+        elif request.session["id"] not in clients.keys(): #初次登入放到clients字典中
+            clients[request.session["id"]] = request.websocket
+
         while True:
 
             message = request.websocket.wait()
             message = json.loads(str(message,'utf-8'))
 
-            accessToken = message["accessToken"] #检查session
-            session = SessionStore(session_key=accessToken)
-            if "id" not in session:
-                break
-            
-            if session["id"] not in clients.keys(): #初次登入放到clients字典中
-                clients[session["id"]] = request.websocket
+            print(message)
+            # if message["reciver"] in clients.keys():
+            #     clients[message["reciver"]].send(MessageFormat(sender=session["id"],message=message["message"]))
+        
+        del clients[request.session["id"]]
 
-            
-
-            if message["reciver"] in clients.keys():
-                clients[message["reciver"]].send(MessageFormat(sender=session["id"],message=message["message"]))
+def friendRequest(data):
+    clients[data.applicant.id].send("hi")

@@ -46,6 +46,7 @@ struct SettingMain: View {
                 
                 Button(action: {
                     json = SignOut()
+                    SOCKET?.disconnect()
                     showToast.toggle()
                 }){
                     Text("退出登录")

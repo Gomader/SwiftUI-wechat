@@ -13,6 +13,8 @@ struct Index: View {
     init(logined: Binding<Bool>){
         self._logined = logined
         UITabBar.appearance().backgroundColor = UIColor(normal: 0xf8f8f8, normalAlpha: 0.9, dark: 0x181818, darkAlpha: 0.9)
+        let link = WebSocketLink()
+        link.connect()
     }
     
     var body: some View {

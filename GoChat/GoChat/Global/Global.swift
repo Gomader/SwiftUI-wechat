@@ -1,8 +1,11 @@
 import Foundation
 import SwiftUI
+import Starscream
 
 let HOST:String = "http://127.0.0.1:8090"
-let WEBSOCKET_HOST:String = "ws:/127.0.0.1:8090/chat/connect/"
+let WEBSOCKET_HOST:String = "ws://127.0.0.1:8090/chat/link/"
+
+var SOCKET:WebSocket? = nil
 
 let screen_width = UIScreen.main.bounds.size.width
 let screen_height = UIScreen.main.bounds.size.height

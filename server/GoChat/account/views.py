@@ -4,6 +4,7 @@ from django.core import serializers
 from django.db.models import Q
 from GoChat.settings import MEDIA_ROOT
 import json,random,os,datetime
+from chat.views import friendRequest
 
 
 # Create your views here.
@@ -143,7 +144,8 @@ def sendFriendRequest(request):
             friendId = account_models.Account.objects.filter(id=request.POST["id"])[0]
             application = account_models.FriendApplication.objects.filter(Q(applicant=request.session["id"])&Q(receiver=request.POST["id"]))
             if len(application) == 0:
-                account_models.FriendApplication.objects.create(applicant=user,receiver=friendId,expire_date=(datetime.datetime.now()+datetime.timedelta(days=3)))
+                result = account_models.FriendApplication.objects.create(applicant=user,receiver=friendId,expire_date=(datetime.datetime.now()+datetime.timedelta(days=3)))
+                friendRequest(result)
             return HttpResponse(ReturnFormat(code=200,msg="发送好友请求成功",accesstoken=request.session.session_key))
         else:
             return HttpResponse(ReturnFormat(code=401,msg="未登录"))
