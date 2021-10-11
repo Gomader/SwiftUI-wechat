@@ -4,7 +4,7 @@ struct Index: View {
     
     @Binding var logined:Bool
     @State var ChatListNewMessage:Int = 0
-    @State var BookNewMessage:Int = 0
+    @ObservedObject var BookNewMessage:FriendRequestList = FriendRequestList.sharedInstance
     @State var FindNewMessage:Int = 0
     @State var MyNewMessage:Int = 0
     
@@ -13,8 +13,7 @@ struct Index: View {
     init(logined: Binding<Bool>){
         self._logined = logined
         UITabBar.appearance().backgroundColor = UIColor(normal: 0xf8f8f8, normalAlpha: 0.9, dark: 0x181818, darkAlpha: 0.9)
-        let link = WebSocketLink()
-        link.connect()
+        WebsocketConnect()
     }
     
     var body: some View {
@@ -29,7 +28,7 @@ struct Index: View {
                             Text("GoChat")
                         })
                     
-                    Book(newMessage: $BookNewMessage)
+                    Book()
                         .tabItem({
 
                             Image(systemName: "person.crop.circle")
@@ -65,13 +64,13 @@ struct Index: View {
                     Circle()
                         .foregroundColor(.red)
 
-                    Text(self.BookNewMessage == -1 ? "" : self.BookNewMessage > 99 ? "99+" : "\(self.BookNewMessage)")
+                    Text(self.BookNewMessage.unRead == -1 ? "" : self.BookNewMessage.unRead > 99 ? "99+" : "\(self.BookNewMessage.unRead)")
                         .foregroundColor(.white)
                         .font(Font.system(size: 12))
                     }
                     .frame(width: 20, height: 20)
                     .offset(x: ( ( 2 * 2) - 1 ) * ( geometry.size.width / ( 2 * self.tabsCount ) ), y: -30)
-                    .opacity(self.BookNewMessage == 0 ? 0 : 1)
+                    .opacity(self.BookNewMessage.unRead == 0 ? 0 : 1)
                 
                 ZStack {
                     Circle()

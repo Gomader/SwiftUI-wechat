@@ -14,11 +14,25 @@ var ACCESS_TOKEN:String = ""
 
 var USER_INFO:Dictionary<String, Any> = [:]
 
-var FRIENDLIST:Dictionary<String, Any> = [:]
+class FriendList: ObservableObject{
+    
+    static let sharedInstance = FriendList()
+    @Published var list = [:] //字典形式
+    
+}
+
+class FriendRequestList: ObservableObject{
+    
+    static let sharedInstance = FriendRequestList()
+    //applicant和state字段，state：0未查看，1已查看，2过期
+    @Published var list = [Dictionary<String,Any>]() //列表形式（顺序有关
+    @Published var unRead = 0
+    
+}
 
 class MessageList: ObservableObject{
     
     static let sharedInstance = MessageList()
-    @Published var list = []
+    @Published var list = [] //列表形式（顺序有关）
     
 }

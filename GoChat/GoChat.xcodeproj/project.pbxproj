@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8835CB212714CEE8006DCECC /* NewFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8835CB202714CEE8006DCECC /* NewFriend.swift */; };
 		883A48E82711E98000AB7003 /* FriendFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A48E72711E98000AB7003 /* FriendFunctions.swift */; };
 		883ACA812707585B006D4898 /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883ACA802707585B006D4898 /* General.swift */; };
 		883ACA8327075B0B006D4898 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883ACA8227075B0B006D4898 /* UserInfo.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8835CB202714CEE8006DCECC /* NewFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFriend.swift; sourceTree = "<group>"; };
 		883A48E72711E98000AB7003 /* FriendFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendFunctions.swift; sourceTree = "<group>"; };
 		883ACA802707585B006D4898 /* General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = General.swift; sourceTree = "<group>"; };
 		883ACA8227075B0B006D4898 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				887B4890270B6A81006E9EB5 /* SearchFriend.swift */,
+				8835CB202714CEE8006DCECC /* NewFriend.swift */,
 				887B4894270C3B74006E9EB5 /* VIsitingCard.swift */,
 			);
 			path = User;
@@ -403,6 +406,7 @@
 				887B4891270B6A81006E9EB5 /* SearchFriend.swift in Sources */,
 				883C0B9D2704878D00EE1CE6 /* GetUserInfo.swift in Sources */,
 				883C0BA02704D17E00EE1CE6 /* SettingMain.swift in Sources */,
+				8835CB212714CEE8006DCECC /* NewFriend.swift in Sources */,
 				889CE2F326FF6E6800267A82 /* Home.swift in Sources */,
 				889CE2EF26FF6C5700267A82 /* SignupPage.swift in Sources */,
 				889CE3062700D71800267A82 /* SHA256.swift in Sources */,

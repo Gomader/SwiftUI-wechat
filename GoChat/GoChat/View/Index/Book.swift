@@ -9,11 +9,8 @@ import SwiftUI
 
 struct Book: View {
     
-    @Binding var newMessage:Int
-    
-    init(newMessage: Binding<Int>){
-        self._newMessage = newMessage
-        FRIENDLIST = getFriendList()["data"] as! Dictionary<String, Any>
+    init(){
+        
     }
     
     var body: some View {
@@ -64,28 +61,45 @@ struct BookTopbar: View{
 
 struct BookListScrollList: View{
     
+    @ObservedObject var friendrequest:FriendRequestList = FriendRequestList.sharedInstance
+    
     var body: some View{
         
         ScrollView(.vertical,showsIndicators: false){
             
             VStack(spacing:0){
                 
-                HStack{
-                    
-                    Image(systemName: "person.fill.badge.plus")
-                        .font(.system(size: 25))
-                        .frame(width: 40, height: 40)
-                        .foregroundColor(Color(hex: 0xFFFFFF))
-                        .background(Color(hex: 0xf39d4a))
-                        .cornerRadius(4)
+                NavigationLink(destination: NewFriend(), label: {
+                    HStack{
+                        
+                        Image(systemName: "person.fill.badge.plus")
+                            .font(.system(size: 25))
+                            .frame(width: 40, height: 40)
+                            .foregroundColor(Color(hex: 0xFFFFFF))
+                            .background(Color(hex: 0xf39d4a))
+                            .cornerRadius(4)
+                            .padding()
+                        
+                        Text("新的朋友")
+                            .font(.system(size: 20)).foregroundColor(Color.init(UIColor(normal: 0x000000, normalAlpha: 1, dark: 0xFFFFFF, darkAlpha: 1)))
+                        
+                        Spacer()
+                        
+                        ZStack{
+                            Circle()
+                                .foregroundColor(.red)
+
+                            Text(self.friendrequest.unRead == -1 ? "" : self.friendrequest.unRead > 99 ? "99+" : "\(self.friendrequest.unRead)")
+                                .foregroundColor(.white)
+                                .font(Font.system(size: 12))
+                        }
+                        .frame(width: 25, height: 25)
+                        .opacity(self.friendrequest.unRead == 0 ? 0 : 1)
                         .padding()
-                    
-                    Text("新的朋友")
-                    
-                    Spacer()
-                    
-                }.frame(width: screen_width)
-                    .background(Color.init(UIColor(normal: 0xFFFFFF, normalAlpha: 1, dark: 0x181818, darkAlpha: 1)))
+                        
+                    }.frame(width: screen_width)
+                        .background(Color.init(UIColor(normal: 0xFFFFFF, normalAlpha: 1, dark: 0x181818, darkAlpha: 1)))
+                }).navigationTitle("")
                 
             }
             

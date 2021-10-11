@@ -15,6 +15,7 @@ struct VIsitingCard: View {
     let user:NSDictionary
     @State var showSheet = false
     @State var json:NSDictionary = NSDictionary()
+    @ObservedObject var list:FriendList = FriendList.sharedInstance
     
     var body: some View {
         
@@ -22,7 +23,7 @@ struct VIsitingCard: View {
             
             VIsitingCardTopbar(user: user)
             
-            if FRIENDLIST[user["pk"] as! String] == nil{
+            if list.list[user["pk"] as! String] == nil{
                 Button(action: {
                     json = sendFriendRequest(id: user["pk"] as! String)
                     showSheet.toggle()

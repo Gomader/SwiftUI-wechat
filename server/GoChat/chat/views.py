@@ -25,7 +25,6 @@ def link(request):
             message = request.websocket.wait()
             message = json.loads(str(message,'utf-8'))
 
-            print(message)
             # if message["reciver"] in clients.keys():
             #     clients[message["reciver"]].send(MessageFormat(sender=session["id"],message=message["message"]))
         

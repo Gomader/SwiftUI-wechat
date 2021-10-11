@@ -18,6 +18,7 @@ struct GoChatApp: App {
             let json:NSDictionary = CheckToken(token: token)
             if json["code"] as! Int == 200{
                 ACCESS_TOKEN = UserDefaults.standard.string(forKey: "ACCESS_TOKEN")!
+                print(ACCESS_TOKEN)
             }
             
             if UserDefaults.standard.dictionary(forKey: "USER_INFO") != nil{
@@ -30,7 +31,14 @@ struct GoChatApp: App {
             }
             
             if UserDefaults.standard.dictionary(forKey: "FRIENDLIST") != nil{
-                FRIENDLIST = UserDefaults.standard.dictionary(forKey: "FRIENDLIST")!
+                let list:FriendList = FriendList.sharedInstance
+                list.list = UserDefaults.standard.dictionary(forKey: "FRIENDLIST")!
+            }
+            
+            if UserDefaults.standard.array(forKey: "FriendRequestList") != nil{
+                let list:FriendRequestList = FriendRequestList.sharedInstance
+                list.list = UserDefaults.standard.array(forKey: "FriendRequestList") as! [Dictionary<String, Any>]
+                list.unRead = UserDefaults.standard.integer(forKey: "FriendRequestListUnReadNumber")
             }
             
         }

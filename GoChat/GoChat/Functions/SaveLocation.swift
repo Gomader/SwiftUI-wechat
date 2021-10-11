@@ -21,7 +21,14 @@ func SaveMessageBoxList() -> Void{
 }
 
 func SaveFriendList() -> Void{
-    UserDefaults.standard.setValue(FRIENDLIST, forKey: "FRIENDLIST")
+    let list:FriendList = FriendList.sharedInstance
+    UserDefaults.standard.setValue(list.list, forKey: "FRIENDLIST")
+}
+
+func SaveFriendRequestList() -> Void{
+    let list:FriendRequestList = FriendRequestList.sharedInstance
+    UserDefaults.standard.setValue(list.list, forKey: "FriendRequestList")
+    UserDefaults.standard.setValue(list.unRead, forKey: "FriendRequestListUnReadNumber")
 }
 
 func DeleteLocalData() -> Void{

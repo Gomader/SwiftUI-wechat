@@ -167,9 +167,8 @@ def acceptFriendRequest(request):
 def getFriendRequestList(request):
     if request.method == "POST":
         if "id" in request.session.keys():
-            id=request.session["id"]
-            result = account_models.FriendApplication.objects.filter(receiver=id)
-            data = json.loads(serializers.serialize("json", result, fields=("applicant","create_time","expire_date")))
+            result = account_models.FriendApplication.objects.filter(Q(receiver=request.session["id"]))
+            data = json.loads(serializers.serialize("json", result, fields=("applicant")))
             return HttpResponse(ReturnFormat(code=200,msg="获取好友申请列表成功",accesstoken=request.session.session_key,data=data))
         else:
             return HttpResponse(ReturnFormat(code=401,msg="未登录"))

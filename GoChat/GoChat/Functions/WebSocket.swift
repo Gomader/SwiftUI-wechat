@@ -5,39 +5,26 @@
 //  Created by 宫赫 on 2021/9/27.
 //
 
+import Foundation
 import UIKit
 import Starscream
 
-class WebSocketLink: WebSocketDelegate{
+func WebsocketConnect() -> Void{
     
-    var isConnected:Bool = false
-    
-    func connect(){
-        
-        var request = URLRequest(url: URL(string: "\(WEBSOCKET_HOST)")!)
-        request.timeoutInterval = 5
-        request.setValue("sessionid=\(ACCESS_TOKEN)", forHTTPHeaderField: "Cookie")
-        SOCKET = WebSocket(request: request)
-        SOCKET?.delegate = self
-        SOCKET?.connect()
-        
-    }
-    
-    func disconnect() {
-        SOCKET?.disconnect()
-    }
-    
-    func didReceive(event: WebSocketEvent, client: WebSocket) {
+    var request = URLRequest(url: URL(string: "\(WEBSOCKET_HOST)")!)
+    request.timeoutInterval = 5
+    request.setValue("sessionid=\(ACCESS_TOKEN)", forHTTPHeaderField: "Cookie")
+    SOCKET = WebSocket(request: request)
+    SOCKET?.connect()
+    SOCKET?.onEvent = {event in
         
         switch event{
         case .connected(let headers):
-            isConnected = true
             print("websocket is connected: \(headers)")
         case .disconnected(let reason, let code):
-            isConnected = false
             print("websocket is disconnected: \(reason) with code: \(code)")
         case .text(let string):
-            print("Received text: \(string)")
+            WebsocketTextEvent(text: string)
         case .binary(let data):
             print("Received data: \(data.count)")
         case .ping(_):
@@ -49,11 +36,35 @@ class WebSocketLink: WebSocketDelegate{
         case .reconnectSuggested(_):
             break
         case .cancelled:
-            isConnected = false
+            break
         case .error(let error):
-            isConnected = false
             print(error ?? "x")
         }
+        
+    }
+    
+}
+
+func WebsocketDisconnect() -> Void{
+    
+    SOCKET?.disconnect()
+    
+}
+
+func WebsocketTextEvent(text:String) -> Void{
+    
+    let jsonData:Data = text.data(using: .utf8)!
+    
+    let dict = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? NSDictionary
+    
+    if dict == nil{return}
+    
+    switch (dict?["type"] as! String){
+        
+    case "":
+        print(1)
+    default:
+        break
     }
     
 }
