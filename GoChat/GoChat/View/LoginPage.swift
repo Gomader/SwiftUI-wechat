@@ -6,7 +6,7 @@ struct LoginView: View {
     @State var password = ""
     @Binding var logined:Bool
     @State var showLoginResult:Bool = false
-    @State var json:NSDictionary = NSDictionary()
+    @State var json:SignReturnFormat = SignReturnFormat(code: 0, msg: "", accesstoken: "")
     var body: some View {
         VStack{
             Image(uiImage: UIImage(imageLiteralResourceName: "logo"))
@@ -34,9 +34,11 @@ struct LoginView: View {
                 .foregroundColor(Color(hex: 0xD30E0E))
             Button(action: {
                 if(account != "" && password.lengthOfBytes(using: .utf8) >= 8){
-                    json = Login(Account: account, Password: password.sha256)
-                    if json["code"] as! Int == 200 {
-                        ACCESS_TOKEN = json["accesstoken"] as! String
+                    SignFuctions().Login(Account: account, Password: password.sha256) { (result) in
+                        self.json = result
+                    }
+                    if json.code == 200 {
+                        ACCESS_TOKEN = json.accesstoken
                         SaveAccessToken()
                     }
                     showLoginResult.toggle()
@@ -49,17 +51,13 @@ struct LoginView: View {
             })
         }
         .toast(isPresenting: $showLoginResult, duration: 2, tapToDismiss: false, offsetY: 0, alert: {
-            if json.count==0 {
-                return AlertToast(type: .loading,title: Optional("登录中"))
+            if json.code == 200{
+                return AlertToast(type: .complete(Color(hex: 0x2EA043)),title: Optional(json.msg))
             }else{
-                if json["code"] as! Int == 200{
-                    return AlertToast(type: .complete(Color(hex: 0x2EA043)),title: Optional(json["msg"] as! String))
-                }else{
-                    return AlertToast(type: .error(Color(hex: 0xD30E0E)),title: Optional(json["msg"] as! String))
-                }
+                return AlertToast(type: .error(Color(hex: 0xD30E0E)),title: Optional(json.msg))
             }
         }, onTap: {}, completion: {
-            if json["code"] as! Int == 200{
+            if json.code == 200{
                 logined = true
             }
         })

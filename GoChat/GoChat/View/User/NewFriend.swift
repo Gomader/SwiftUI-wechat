@@ -16,6 +16,8 @@ struct NewFriend: View {
             
             NewFriendTopbar()
             
+            NewFriendScrollList()
+            
         }.frame(maxHeight: .infinity,alignment: .top)
             .edgesIgnoringSafeArea(.top)
             .background(Color.init(UIColor(normal: 0xededed, normalAlpha: 1, dark: 0x000000, darkAlpha: 1)))
@@ -54,4 +56,30 @@ struct NewFriendTopbar: View{
         }.padding(.top, (UIApplication.shared.windows.last?.safeAreaInsets.top)!)
             .background(Color.init(UIColor(normal: 0xededed, normalAlpha: 1, dark: 0x181818, darkAlpha: 1)))
     }
+}
+
+struct NewFriendScrollList: View{
+    
+    @ObservedObject var list:FriendRequestList = FriendRequestList.sharedInstance
+    
+    var body: some View{
+        
+        ScrollView(.vertical,showsIndicators: false){
+            
+            ForEach(list.list.indices,id: \.self){item in
+                
+                let index = list.list.count-item-1
+                
+                HStack{
+                    
+                    
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
+    
 }

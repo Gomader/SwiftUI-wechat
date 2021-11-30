@@ -37,8 +37,10 @@ def initUserFiles(id):
 
 def signin(request):
     if request.method == "POST":
-        email = request.POST["account"]
-        password = request.POST["password"]
+        print(request.body)
+        data = json.loads(str(request.body, 'utf-8').replace("\\n", ""))
+        email = data["account"]
+        password = data["password"]
         user = account_models.Account.objects.filter(Q(email=email)&Q(password=password))
         if len(user) == 1:
             request.session["id"] = user[0].id

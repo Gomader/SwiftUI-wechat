@@ -103,7 +103,6 @@ struct BookListScrollList: View{
                 
             }
             
-            
         }
         
     }

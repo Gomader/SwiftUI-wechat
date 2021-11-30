@@ -5,9 +5,37 @@
 //  Created by 宫赫 on 2021/9/26.
 //
 
-import Foundation
-import UIKit
 import Alamofire
+import SwiftUI
+
+struct SignReturnFormat: Codable, Identifiable{
+    let id = UUID()
+    var code: Int
+    var msg: String
+    var accesstoken: String
+}
+
+class SignFuctions{
+    func Login(Account:String,Password:String, completion: @escaping (SignReturnFormat) -> ()){
+        guard let url = URL(string: "\(HOST)/account/signin/") else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        
+        let params = ["account": "\(Account)", "password": "\(Password)"]
+        
+        request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+        
+        URLSession.shared.dataTask(with: request){(data,_,_) in
+            print(data!)
+            let result = try! JSONDecoder().decode(SignReturnFormat.self, from: data!)
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }.resume()
+    }
+}
 
 func Login(Account:String,Password:String)->NSDictionary{
     
